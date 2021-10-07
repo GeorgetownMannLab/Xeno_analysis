@@ -1,0 +1,97 @@
+#This is Vivienne's code that I edited so that the thermal image is used for the affine transformation. 
+#The product of this code are coordinates of xeno (in "tpoints") that can be put into "pt_and_temp.R" to get temperature at those points
+
+xeno <- read.csv("points_on_a_monday.csv", row.names = 1)
+
+#Add columns
+xeno$dolphin_id <- as.numeric(as.factor(xeno$image.name))
+
+xeno$color<-ifelse(xeno$point.type=="fin", "black", "red")
+xeno$finlab<-ifelse(xeno$point..==1 &
+                      xeno$point.type=="fin", "tip", NA)
+
+xeno$finlab<-ifelse(xeno$point..==2 &
+                      xeno$point.type=="fin", "back", xeno$finlab)
+
+xeno$finlab<-ifelse(xeno$point..==3 &
+                      xeno$point.type=="fin", "front", xeno$finlab)
+
+xeno$finlab<-ifelse(xeno$point.type=="xeno", "xeno", xeno$finlab)
+
+#check points and remove ones that need to be recoded
+#i=1
+#dev.new()
+#d1<-xeno[xeno$dolphin_id==i,]
+#plot(d1$x, d1$y, type="n",
+      #xlim=rev(range(d1$x)),
+      #ylim=rev(range(d1$y)), 
+     # main=i)
+ #text(d1$x, d1$y, label=d1$finlab, col=d1$color)
+ 
+ #i = i + 1
+
+#recode or check these photos
+
+bads<-c(15,11,22,33, 59, 54, 62, 61) 
+
+xeno <- xeno[-which(xeno$dolphin_id %in% bads),]
+
+#1 is thermal image
+
+library(vec2dtransf)
+
+#Pull out points by location
+front<-xeno[xeno$finlab=="front",]
+back<-xeno[xeno$finlab=="back",]
+tip<-xeno[xeno$finlab=="tip",]
+
+#Test transformation using example from 
+#http://geotux.tuxfamily.org/index.php/en/geo-blogs/item/302-affine-and-similarity-transformations-in-r
+
+d2f<-front[which(front$dolphin_id==1),]
+d2b<-back[which(back$dolphin_id==1),]
+d2t<-tip[which(tip$dolphin_id==1),]
+
+transformed <- list()
+
+for(i in 1:length(unique(xeno$dolphin_id))){
+  
+  d<-unique(xeno$dolphin_id)[i]  
+  
+  d1t<-tip[which(tip$dolphin_id==d),]
+  d1f<-front[which(front$dolphin_id==d),]
+  d1b<-back[which(back$dolphin_id==d),]
+ 
+  
+  
+  cpoints<-matrix(c(d1f$x, d1f$y, d2f$x, d2f$y, 
+                    d1b$x, d1b$y, d2b$x, d2b$y, 
+                    d1t$x, d1t$y, d2t$x, d2t$y), nrow=3, byrow = TRUE)
+  
+  cpoints<-data.frame(cpoints)
+  
+  aft<-AffineTransformation(cpoints)
+  calculateParameters(aft)
+  getParameters(aft)
+  
+  d1<-xeno[xeno$dolphin_id==d,]
+  
+  p2<-SpatialPointsDataFrame(coords=d1[,c("x", "y")], 
+                             data=d1[,c("finlab", "color", "dolphin_id")])
+  
+  newLines = applyTransformation(aft, p2)
+  
+  transformed[[i]] <- newLines
+  
+}
+
+tpoints<-do.call("rbind", transformed)
+
+dev.new()
+plot(tpoints@coords, type="n",
+     xlim=(tpoints@bbox[1,]),
+     ylim=(tpoints@bbox[2,]), 
+     main="All Xeno")
+text(tpoints@coords[,1], tpoints@coords[,2], label=tpoints$finlab, col=tpoints$color)
+
+save(tpoints, file="tpoints.RData")
