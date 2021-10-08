@@ -135,6 +135,18 @@ allcells$countXeno[is.na(allcells$countXeno)] <- 0
 allcells$realtemp <- bigkey$realtemp[match(round(allcells$pixelvalue,0), 
                                            bigkey$pixelvalue)]
 
+
+#######create line from tip to trailing edge points#### What do you think about this, Vivienne?
+ys <- c(y2[260],y2[261])
+xs <- c(x2[260],x2[261])
+slope <- diff(ys)/diff(xs)
+intercept <- ys[1]-slope*xs[1]
+abline(intercept, slope, col="red")
+trailing_edge <- abline(intercept, slope, col="red")
+#######find distance of xeno points to trailing edge line
+library(SpatialGraph)
+pointLineD(coords,trailing_edge)
+
 #######
 #Model
 #######
