@@ -20,7 +20,7 @@ This repository contains the data and code which produce Figure 4, Figure 5, Tab
 	+ `key.RData` cell-color to temperature translation, input for `hydro_temp_model.R`, produced by `KeyConstruction.R`
 	+ `tpoints.RData` affine-transformed *X.globicipitis* attachments, input for `hydro_temp_model.R`, produced by `make_tpoints.R`
 
-* **TablesFigures** outputs of **AnalysisCode** included in the manuscript
+* **TablesFigures** contains outputs of **AnalysisCode** included in the manuscript
 	+ `Figure_4.pdf` thermal image with *X.globicipitis* attachments
 	+ `Figure_5.pdf` logistic regression of *X.globicipitis* presence/absence and max sea surface temperature by species
 	+ `logistic_summary.csv` *Table 2* in the the manuscript, statistics for geographic logistic regression
