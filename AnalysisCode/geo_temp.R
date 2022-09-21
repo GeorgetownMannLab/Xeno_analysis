@@ -31,12 +31,14 @@ write.csv(summary_table, 'logistic_summary.csv', row.names=TRUE)
 #use the tidyverse package to plot the logistic regression
 plot_data <- temp_data[c("Xeno", "max.temp")]
 
+
 library(tidyverse)
+pdf("Figure_5.pdf")
 ggplot(plot_data, aes(max.temp, Xeno))+
   geom_point(alpha = 0.2) +
   geom_smooth(method = "glm", method.args = list(family = "binomial")) +
   labs(
-    title = "Logistic Regression Model", 
     x = "Maximum Temperature",
-    y = "Xeno(yes/no)"
+    y = expression(paste(italic("X. globicipitis") , " attachment"))
   )
+dev.off()
