@@ -1,16 +1,10 @@
 ###
-#this script has two main objectives:
-#(1) creates a figure with the thermal image and the xeno attachment points (Figure 4)
-#(2) models temperature and location factors for xeno attachment 
+#This code creates a figure with the thermal image and the xeno attachment points (Figure 4)
 ###
 
 library(raster)
 library(rgdal)
 
-######
-#ir is just for the figure, irb is form without background for model
-######
-ir <- raster("newSfb218-75.tif")
 irb <- raster("no_background.tiff")
 
 load("tpoints.RData")  
@@ -26,7 +20,7 @@ rescale_y <- function(x, oldmax, newmax) {newmax - ((x-0)/(oldmax - 0) * newmax)
 
 x2 <- rescale_x(tp[,1], 912, 1620)
 y2 <- rescale_y(tp[,2], 608, 900)
-plot(ir, 
+plot(irb, 
      col=gray.colors(10, start = 0.3, end = 0.9, gamma = 2.2, alpha = NULL))
 points(x2, y2)
 points(x2[237:239], y2[237:239], col="red", pch=16) #anchor points on thermal image
@@ -258,5 +252,3 @@ predict(modA1, newdata=temp_var, type="response")
 
 #> 0.003582956 /0.001425580 
 #[1] 2.513332
-
-
