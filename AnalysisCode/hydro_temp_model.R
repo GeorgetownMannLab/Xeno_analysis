@@ -221,6 +221,16 @@ modA1 <- glm(countXeno ~ realtemp + location, data=Variation_A , family="poisson
 
 summary(modA1) 
 
+#extract key statistics for summary table
+p <- summary(modA1)$coefficients[,4]
+standard_error <-summary(modA1)$coefficients[,2]
+model_coefficient <-summary(modA1)$coefficients[,1]
+summary_table <- as.data.frame(t(rbind(model_coefficient, standard_error, p)))
+row.names(summary_table) <- c("intercept", "maximum temperature", "location:tip")
+
+#export summary table
+write.csv(summary_table, 'poisson_summary.csv', row.names=TRUE)
+
 #find average temperature and variation for each section of the fin
 means<-with(allcells, tapply(realtemp, location, mean))
 
