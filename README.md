@@ -1,6 +1,6 @@
-# Reproducible Research Template
+# Xeno_analysis
 
-This is an example template to help format a research project from start to finish.
+This repository contains the data and code that produce the Figures 4 and 5 and the accompanying model-statistic in Tables 1 and 2 of the manuscript "Some like it hot: Temperature and hydrodynamic factors influence Xenobalanus globicipitis attachment to cetaceans"
 
 ## Installation
 
