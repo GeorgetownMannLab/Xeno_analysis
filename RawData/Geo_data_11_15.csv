@@ -1,0 +1,43 @@
+﻿Species,Common name,Presence/absence,max temp,min temp
+Balaena mysticetus,Bowhead whale,No,12.48,-1.23
+Balaenoptera acutorostrata,Common minke whale,Yes,29.48,-1.78
+Balaenoptera borealis,Sei Whale,Yes,29.08,-1.67
+Balaenoptera edeni,Bryde's Whale,Yes,29.97,9.61
+balaenoptera brydei,Bryde's Whale,Yes,29.1,16.59
+Balaenoptera musculus,Blue Whale,Yes,29.46,-1.78
+Balaenoptera physalus,Fin whale,Yes,29.22,-1.77
+Delphinapterus leucas,Beluga whales (Western Hudson Bay),No,18.62,-1.11
+Delphinus delphis,Short-beaked common dolphin,Yes,29.3,-1.62
+Eubalaena australis,Southern Right Whale,No,28.12,-1.4
+Feresa attenuata,Pygmy killer whale,Yes,29.39,8.81
+Globicephala macrorhynchus,Short-finned pilot whale,Yes,29.57,1.69
+Globicephala melas,Long-finned pilot whale,Yes,28.9,-1.65
+Grampus griseus,"Risso’s dolphin, gray grampus",Yes,29.59,2.61
+Hyperoodon ampullatus,Bottlenose Whales,No,23.04,-0.36
+Lagenorhynchus obliquidens,Pacific white-sided dolphin,Yes,21.61,1.05
+Lagenorhynchus obscurus,Dusky dolphin,Yes,22.58,-0.01
+Lissodelphis borealis,Right Whale Dolphin,yes,19.35,8.07
+Megaptera novaeangliae,Humpback whale,Yes,29.5,-1.79
+Mesoplodon densirostris,Blainville's beaked whales,No,28.92,5.26
+Mesoplodon mirus,True’s beaked whale,Yes,24.83,11.73
+Neophocaena phocaenoides,Indo-Pacific finless porpoise,Yes,29.35,14.97
+Orcaella heinsohni,snubfin dolphins,No,28.74,20.29
+Orcinus orca,"Killer whale, orca",Yes,29.82,-1.75
+Phocoena phocoena,Harbor porpoise,Yes,27.8,-0.35
+Phocoena sinus,vaquita,Yes,23.64,23.39
+Physeter macrocephalus,Sperm whales,Yes,29.95,-1.65
+Pontoporia blainvillei,La Plata Dolphin,Yes,25.89,13.64
+Pseudorca crassidens,False killer whale,Yes,29.62,1.95
+Sotalia fluviatilis,Tucuxi,Yes,27.75,13.55
+Sotalia guianensis,Guiana dolphin,Yes,28.07,22.95
+Sousa sahulensis,humpback dolphin ,No,28.72,22.99
+Stenella attenuata,Pantropical spotted dolphin,Yes,30.11,14.04
+Stenella clymene,clymene dolphin,Yes,28.25,17.3
+Stenella coeruleoalba,Striped dolphin,Yes,29.46,5.04
+Stenella frontalis,Atlantic spotted dolphin,yes,28.18,6.97
+Stenella longirostris,Spinner dolphin,Yes,30.11,10.08
+Steno bredanensis,Rough-toothed dolphin,Yes,29.96,15.76
+Tursiops aduncus,Indo-Pacific bottlenose dolphin,Yes,29.85,15.55
+Tursiops truncatus,Common bottlenose dolphin,Yes,29.99,0.98
+Ziphius cavirostris,"Cuvier’s beaked whale, goose-beaked whale",Yes,29.74,1.43
+Monodon monoceros,Narwhal,No,1.79,-0.74
