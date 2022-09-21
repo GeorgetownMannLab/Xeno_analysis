@@ -1,5 +1,4 @@
-#this is Vivienne's code that produces a key that matches color to temperature.
-#updated on 10/7/21 to use Meagher's file
+#This code produces key.RData to translate raster cell color into cell temperature
 
 library(raster)
 
