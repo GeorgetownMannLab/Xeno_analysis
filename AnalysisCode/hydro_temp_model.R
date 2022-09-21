@@ -1,5 +1,5 @@
 ###
-#This code creates a figure with the thermal image and the xeno attachment points (Figure 4)
+#This code runs a poisson model on temperature and location (based on 4 hydrodynamically distinct sections)
 ###
 
 library(raster)
