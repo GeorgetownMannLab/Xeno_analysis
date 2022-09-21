@@ -1,6 +1,6 @@
 # Xeno_analysis
 
-This repository contains the data and code that produce the Figures 4 and 5 and the accompanying model-statistic in Tables 1 and 2 of the manuscript "Some like it hot: Temperature and hydrodynamic factors influence Xenobalanus globicipitis attachment to cetaceans"
+This repository contains the data and code which produce Figure 4, Figure 5, Table 1, and Table 2 from the manuscript "Some like it hot: Temperature and hydrodynamic factors influence Xenobalanus globicipitis attachment to cetaceans"
 
 ## Directories and Content
 * **AnalysisCode** contains code that is used for modeling analysis and figure production
