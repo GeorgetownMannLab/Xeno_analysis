@@ -1,11 +1,11 @@
 #####
 #this script extracts species, presence/absence of xeno, 
 #maximum sea surface temperature (SST), and runs a logistic regression.
-#tidyverse is used to plot the logistic regression and create figure 5.
+#ggplot2 is used to plot the logistic regression and create figure 5.
 #####
 
 #extract variables from geographic data
-Xeno_Table_Draft_11_15 <- as.data.frame(read.csv("Geo_data_11:15.csv"))
+Xeno_Table_Draft_11_15 <- as.data.frame(read.csv("RawData/Geo_data_11_15.csv"))
 
 temp_data <- Xeno_Table_Draft_11_15[,c("Species", "Presence.absence", "max.temp")]
 
@@ -26,14 +26,14 @@ summary_table <- as.data.frame(t(rbind(model_coefficient, standard_error, p)))
 row.names(summary_table) <- c("intercept", "maximum temperature")
 
 #export summary table
-write.csv(summary_table, 'logistic_summary.csv', row.names=TRUE)
+#write.csv(summary_table, 'logistic_summary.csv', row.names=TRUE)
 
-#use the tidyverse package to plot the logistic regression
+#write export file for Figure 5
+#pdf("Figure_5.pdf")
+
+#plot the logistic regression
 plot_data <- temp_data[c("Xeno", "max.temp")]
-
-
-library(tidyverse)
-pdf("Figure_5.pdf")
+library(ggplot2)
 ggplot(plot_data, aes(max.temp, Xeno))+
   geom_point(alpha = 0.2) +
   geom_smooth(method = "glm", method.args = list(family = "binomial")) +
@@ -41,4 +41,5 @@ ggplot(plot_data, aes(max.temp, Xeno))+
     x = "Maximum Temperature",
     y = expression(paste(italic("X. globicipitis") , " attachment"))
   )
-dev.off()
+
+#dev.off()
