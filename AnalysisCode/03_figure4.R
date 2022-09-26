@@ -1,11 +1,11 @@
 # This code produces plots xeno points onto thermal image (Figure 4)
 
 library(raster)
-library(rgdal)
-ir <- raster("newSfb218-75.tif")
+ir <- raster("RawData/newSfb218-75.tif")
 
+#write output file
+#pdf("Figure_4.pdf")
 
-pdf("Figure_4.pdf")
 par(mar = c(5.1, 4.1, 4.1, 2.1))
 plot(ir,
      col = gray.colors(10, start = 0.3, end = 0.9, gamma = 2.2, alpha = NULL),
@@ -22,4 +22,4 @@ plot(ir, legend.only = TRUE, col = gray.colors(10, start = 0.3, end = 0.9, gamma
                       cex.axis = 0.8),
      legend.args = list(text = 'Temperature (°C)', side = 3, font = 2, line = 1, cex = 0.8))
 
-dev.off()
+#dev.off()
