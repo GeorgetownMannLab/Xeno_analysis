@@ -1,7 +1,7 @@
 #This code performs an affine transformation on marked xeno attachment points and fin points (tip, back insertion, front insertion).
 #The output of this code "tpoints.RData" can be used to extract temperature values for xeno attachment 
 
-xeno <- read.csv("Xeno_pts_v2.csv", row.names = 1)
+xeno <- read.csv("RawData/Xeno_pts_v2.csv", row.names = 1)
 
 #Add columns
 xeno$dolphin_id <- as.numeric(as.factor(xeno$image.name))
@@ -18,16 +18,6 @@ xeno$finlab<-ifelse(xeno$point..==3 &
 
 xeno$finlab<-ifelse(xeno$point.type=="xeno", "xeno", xeno$finlab)
 
-#check points and remove ones that need to be recoded
-#i=
-#dev.new()
-#d1<-xeno[xeno$dolphin_id==i,]
-#plot(d1$x, d1$y, type="n",
-    # xlim=rev(range(d1$x)),
-      #ylim=rev(range(d1$y)), 
-      #main=i)
-# text(d1$x, d1$y, label=d1$finlab, col=d1$color)
-
 #12 is thermal image
 
 library(vec2dtransf)
@@ -37,8 +27,6 @@ front<-xeno[xeno$finlab=="front",]
 back<-xeno[xeno$finlab=="back",]
 tip<-xeno[xeno$finlab=="tip",]
 
-#Test transformation using example from 
-#http://geotux.tuxfamily.org/index.php/en/geo-blogs/item/302-affine-and-similarity-transformations-in-r
 
 d2f<-front[which(front$dolphin_id==12),]
 d2b<-back[which(back$dolphin_id==12),]
@@ -86,4 +74,5 @@ plot(tpoints@coords, type="n",
      main="All Xeno")
 text(tpoints@coords[,1], tpoints@coords[,2], label=tpoints$finlab, col=tpoints$color)
 
-save(tpoints, file="tpoints.RData")
+#save as RData file for intermediate data usage
+#save(tpoints, file="tpoints.RData")
