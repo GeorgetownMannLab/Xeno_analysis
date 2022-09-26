@@ -5,10 +5,10 @@
 library(raster)
 library(rgdal)
 
-irb <- raster("no_background.tiff")
+irb <- raster("RawData/no_background.tiff")
 
-load("tpoints.RData")  
-load("new_key.RData")
+load("IntermediateData/tpoints.RData")  
+load("IntermediateData/new_key.RData")
 
 tp <- coordinates(tpoints)
 
@@ -32,7 +32,6 @@ scaled_points <- SpatialPoints(coords=cbind(x2, y2))
 scale<-extract(irb, scaled_points)
 
 ##Match to key, interpolate key values
-load("new_key.RData")
 range(key$scalevalues)
 length(2:253)
 realtemp <- seq(26.4, 35.6, length.out=252)
@@ -223,7 +222,7 @@ summary_table <- as.data.frame(t(rbind(model_coefficient, standard_error, p)))
 row.names(summary_table) <- c("intercept", "maximum temperature", "location:tip")
 
 #export summary table
-write.csv(summary_table, 'poisson_summary.csv', row.names=TRUE)
+#write.csv(summary_table, 'poisson_summary.csv', row.names=TRUE)
 
 #find average temperature and variation for each section of the fin
 means<-with(allcells, tapply(realtemp, location, mean))
