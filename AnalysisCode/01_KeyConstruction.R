@@ -8,13 +8,15 @@ image(ir)
 
 #manually select color scale increments
 ##NOT RUN##
-#example code for manual selection only
+#example of manual selection code only
+
 #colorscale <- locator(12)
 #cs <- as.data.frame(colorscale)
 
 #scalevalues <- extract(ir, cs)
 
 #key <- data.frame(scalevalues, temperature=numeric(12))
+
 ####
 
 #assign temperature to the scale values
