@@ -4,12 +4,12 @@ This repository contains the data and code which produce Figure 4, Figure 5, Tab
 
 ## Directories and Content
 * **AnalysisCode** contains code that is used for modeling analysis and figure production
-	+ `KeyConstruction.R` produces `key.RData`, an intermediate product and input file of `hydro_temp_model.R`
-	+ `figure_4.R` produces Figure 4, a plot of *X.globicipitis* attachment on a thermal image of a dorsal fin
-	+ `geo_temp.R` runs a logistic regression on presence/absence of *X.globicipitis* and max sea surface temperature, produces Figure 5 and corresponding logistic model statistics in Table 2
-	+ `hydro_temp_model.R` runs a poisson model on temperature and hydrodynamic location, produces corresponding poisson model statistics in Table 2 **Note: this code can only function after the codes *make_tpoints.R* and *KeyConstruction.R*** 
-	+ `make_tpoints.R` produces *tpoints.Rdata*, an intermediate product and input file of `hydro_temp_model.R`
-
+	+ `01_KeyConstruction.R` produces `key.RData`, an intermediate product and input file of `hydro_temp_model.R`
+	+ `02_maketpoints.R` produces *tpoints.Rdata*, an intermediate product and input file of `hydro_temp_model.R`
+	+ `03_figure4.R` produces Figure 4, a plot of *X.globicipitis* attachment on a thermal image of a dorsal fin
+	+ `04_geotemp.R` runs a logistic regression on presence/absence of *X.globicipitis* and max sea surface temperature, produces Figure 5 and corresponding logistic model statistics in Table 2
+	+ `05_HydroTempModel.R` runs a poisson model on temperature and hydrodynamic location, produces corresponding poisson model statistics in Table 2 **Note: this code can only function after the codes *make_tpoints.R* and *KeyConstruction.R*** 
+	
 * **RawData** contains the necessary input data for the analysis code
 	+ `Geo_data_11_15.csv` geographic *X.globicipitis* presence/absence data, input for `geo_temp.R` 
 	+ `Xeno_pts_v2.csv` coordinates of *X.globicipitis* attachment points to the dorsal fin, input of `make_tpoints.R`
