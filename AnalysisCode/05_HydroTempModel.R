@@ -32,7 +32,7 @@ scaled_points <- SpatialPoints(coords=cbind(x2, y2))
 scale<-extract(irb, scaled_points)
 
 ##Match to key, interpolate key values
-range(key$scalevalues)
+range(new_key$scalevalues)
 length(2:253)
 realtemp <- seq(26.4, 35.6, length.out=252)
 
