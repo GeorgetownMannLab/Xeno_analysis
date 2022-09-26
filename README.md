@@ -13,7 +13,7 @@ This repository contains the data and code which produce Figure 4, Figure 5, Tab
 * **RawData** contains the necessary input data for the analysis code
 	+ `Geo_data_11_15.csv` geographic *X.globicipitis* presence/absence data, input for `04_geotemp.R` 
 	+ `Xeno_pts_v2.csv` coordinates of *X.globicipitis* attachment points to the dorsal fin, input of `02_maketpoints.R`
-	+ `newSfb218-75.tif` thermal image of a dorsal fin from Meagher et al. (2002), input of `figure_4.R`
+	+ `newSfb218-75.tif` thermal image of a dorsal fin from Meagher et al. (2002), input of `03_figure4.R`
 	+ `no_background.tiff` thermal image with background manually removed, input of `05_HydroTempModel.R`
 	
 * **IntermediateData** contains data that is produced by one code and input for another
