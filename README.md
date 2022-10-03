@@ -25,5 +25,7 @@ This repository contains the data and code which produce Figure 4, Figure 5, Tab
 	+ `Figure_5.pdf` logistic regression of *X.globicipitis* presence/absence and max sea surface temperature by species
 	+ `logistic_summary.csv` *Table 2* in the the manuscript, statistics for geographic logistic regression
 	+ `poisson_summary.csv` *Table 1* in the manuscript, statistics for the spatial poisson model
+
+* **hydrodynamic_work** contains all the raw data and summary statistics for the hydrodynamic analysis of the fin from Dr. Frank Fish. This folder is not integrated into the other directories because analysis code and RStudio were not used. Data is relevent to sections 2.1.1 and 3.1.1 in the manuscript.
 	
 
